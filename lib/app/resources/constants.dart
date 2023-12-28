@@ -1,3 +1,3 @@
 class ApiUrls {
-  static String userProfile = 'https://reqres.in/api/users/2';
+  static String userProfile = 'https://reqres.in/api/users/7';
 }

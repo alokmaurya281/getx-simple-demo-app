@@ -1,5 +1,7 @@
 import 'package:counter_app/app/modules/profile/bindings/profile_binding.dart';
 import 'package:counter_app/app/modules/profile/views/profile_view.dart';
+import 'package:counter_app/app/modules/qr_generator/bindings/qr_generator_binding.dart';
+import 'package:counter_app/app/modules/qr_generator/views/qr_generator_view.dart';
 import 'package:counter_app/app/modules/second_screen/bindings/second_screen_binding.dart';
 import 'package:counter_app/app/modules/second_screen/views/second_screen.dart';
 import 'package:get/get.dart';
@@ -33,6 +35,12 @@ class AppPages {
       name: _Paths.PROFILESCREEN,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.QRGENERATOR,
+      page: () => const QRGeneratorView(),
+      binding: QRGeneratorBinding(),
       transition: Transition.rightToLeft,
     ),
   ];

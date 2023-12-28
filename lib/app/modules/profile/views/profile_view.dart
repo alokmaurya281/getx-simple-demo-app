@@ -1,5 +1,4 @@
 import 'package:counter_app/app/modules/profile/controllers/profile_controller.dart';
-import 'package:counter_app/app/modules/profile/models/profile_model.dart';
 import 'package:counter_app/app/modules/profile/providers/profile_provider.dart';
 import 'package:counter_app/app/utils/empty_page.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +74,7 @@ class ProfileView extends GetView<ProfileController> {
                                     ),
                                   ),
                                 ],
-                              )
+                              ),
                             ],
                           );
                         },

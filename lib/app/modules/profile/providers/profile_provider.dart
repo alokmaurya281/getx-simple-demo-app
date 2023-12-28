@@ -9,14 +9,16 @@ class ProfileProvider extends GetConnect {
     httpClient.defaultContentType = "application/json";
     httpClient.defaultDecoder = (map) {
       if (map is Map<String, dynamic>) return ProfileModel.fromJson(map);
-      if (map is List)
+      if (map is List) {
         return map.map((item) => ProfileModel.fromJson(item)).toList();
+      }
     };
 
     httpClient.baseUrl = baseUrl;
   }
 
   Future<ProfileModel?> getModel() async {
+    
     final response = await get(ApiUrls.userProfile);
     return response.body;
   }
