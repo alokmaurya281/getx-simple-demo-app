@@ -74,18 +74,21 @@ class CustomMessageCard extends StatelessWidget {
     //   ),
     // );
     return Padding(
-      padding: EdgeInsets.all(8),
-      child: Container(
-        child: ClipPath(
-          clipper: UpperNipMessageClipperTwo(
-            MessageType.receive,
+      padding: const EdgeInsets.all(8),
+      child: ClipPath(
+        clipper: UpperNipMessageClipperTwo(
+          MessageType.receive,
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            color: Colors.green,
           ),
-          child: Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.green,
+          child: const Text(
+            'Hii How are your',
+            style: TextStyle(
+              color: Colors.black,
             ),
-            child: Text('Hii How are your'),
           ),
         ),
       ),

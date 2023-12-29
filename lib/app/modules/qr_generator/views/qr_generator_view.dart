@@ -38,6 +38,7 @@ class QRGeneratorView extends GetView<QRGeneratorController> {
                     height: 16,
                   ),
                   TextFormField(
+                    controller: controller.dataController,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -64,8 +65,10 @@ class QRGeneratorView extends GetView<QRGeneratorController> {
                     text: 'Generate',
                     borderColor: Colors.red,
                     buttonHandler: () {
+                      // log('${controller.dataController.text.toString()} Text');
                       if (controller.dataController.text.isNotEmpty) {
                         controller.generateQr();
+                        // log('${controller.showQr.toString()} Hii');
                       }
                     },
                     width: 200,

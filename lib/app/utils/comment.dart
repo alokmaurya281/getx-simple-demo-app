@@ -23,9 +23,6 @@ class CommentWidget extends StatelessWidget {
   }
 }
 
-//Add this CustomPaint widget to the Widget Tree
-
-//Copy this CustomPainter code to the Bottom of the File
 class RPSCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -92,7 +89,7 @@ class RPSCustomPainter extends CustomPainter {
     canvas.drawPath(path_0, paint0Stroke);
 
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    paint0Fill.color = const Color(0xff000000).withOpacity(1.0);
+    paint0Fill.color = const Color(0xff000000).withOpacity(0.6);
     canvas.drawPath(path_0, paint0Fill);
   }
 

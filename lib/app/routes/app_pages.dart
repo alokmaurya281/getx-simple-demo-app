@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:counter_app/app/modules/profile/bindings/profile_binding.dart';
 import 'package:counter_app/app/modules/profile/views/profile_view.dart';
 import 'package:counter_app/app/modules/qr_generator/bindings/qr_generator_binding.dart';

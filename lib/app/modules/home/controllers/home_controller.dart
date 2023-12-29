@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:counter_app/app/modules/custom/controllers/custom_controller.dart';
 import 'package:get/get.dart';
 

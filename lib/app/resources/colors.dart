@@ -9,12 +9,12 @@ Color blue = const Color(0xFF4f8efc);
 Color textColor = const Color(0xFF444444);
 Color textHintColor = const Color(0xFFB8B8B8);
 
-Color colorPrimary = Color(0xFFB894F6);
-Color colorPrimaryDark = Color(0xFF8247E0);
-Color colorBackground = Color(0xFF272E3C);
-Color backgroundGrey = Color(0xFF373e4a);
-Color backgroundGreyDark = Color(0xFF181c25);
-Color darkWhite = Color(0XFFcfd8dc);
+Color colorPrimary = const Color(0xFFB894F6);
+Color colorPrimaryDark = const Color(0xFF8247E0);
+Color colorBackground = const Color(0xFF272E3C);
+Color backgroundGrey = const Color(0xFF373e4a);
+Color backgroundGreyDark = const Color(0xFF181c25);
+Color darkWhite = const Color(0XFFcfd8dc);
 Color colorWhite = Colors.white;
 
 
