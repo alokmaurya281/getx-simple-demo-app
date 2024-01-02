@@ -11,6 +11,7 @@ class Secondscreen extends GetView<SecondScreenController> {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Screen'),
@@ -48,6 +49,57 @@ class Secondscreen extends GetView<SecondScreenController> {
               const SizedBox(
                 height: 16,
               ),
+
+              //create animation
+              Obx(
+                () => AnimatedContainer(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.black,
+                  ),
+                  width: controller.containerWidth.value,
+                  height: controller.containerHeight.value,
+                  duration: const Duration(
+                    seconds: 2,
+                  ),
+                  curve: Curves.easeInOutBack,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              //custtom animation using AnimationBuilder Widget opcity
+              AnimatedBuilder(
+                animation: controller.animation,
+                builder: (context, child) {
+                  return Opacity(
+                    opacity: controller.animation.value,
+                    child: Container(
+                      width: controller.growingAnimation.value,
+                      height: controller.growingAnimation.value,
+                      color: Colors.green,
+                      child: const Center(
+                        child: Text(
+                          'Animated Text',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomButton(
+                text: 'Animate',
+                borderColor: Colors.black,
+                buttonHandler: () {
+                  controller.animate();
+                },
+                width: 150,
+                height: 45,
+              )
             ],
           )
         ],
