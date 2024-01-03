@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:counter_app/app/modules/hero_anim/bindings/hero_binding.dart';
+import 'package:counter_app/app/modules/hero_anim/views/hero_view.dart';
 import 'package:counter_app/app/modules/profile/bindings/profile_binding.dart';
 import 'package:counter_app/app/modules/profile/views/profile_view.dart';
 import 'package:counter_app/app/modules/qr_generator/bindings/qr_generator_binding.dart';
@@ -31,7 +33,7 @@ class AppPages {
       name: _Paths.SECONDSCREEN,
       page: () => const Secondscreen(),
       binding: SecondScreenBinding(),
-      transition: Transition.rightToLeft,
+      // transition: Transition.rightToLeft,
     ),
     GetPage(
       name: _Paths.PROFILESCREEN,
@@ -43,6 +45,12 @@ class AppPages {
       name: _Paths.QRGENERATOR,
       page: () => const QRGeneratorView(),
       binding: QRGeneratorBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.HEROPAGE,
+      page: () => const HeroView(),
+      binding: HeroBinding(),
       transition: Transition.rightToLeft,
     ),
   ];

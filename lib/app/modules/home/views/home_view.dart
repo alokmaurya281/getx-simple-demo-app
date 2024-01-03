@@ -1,13 +1,51 @@
+import 'dart:developer';
 import 'package:counter_app/app/modules/home/controllers/home_controller.dart';
 import 'package:counter_app/app/routes/app_pages.dart';
 import 'package:counter_app/app/utils/comment.dart';
 import 'package:counter_app/app/utils/custom_button.dart';
 import 'package:counter_app/app/utils/custom_message_card.dart';
 import 'package:counter_app/app/utils/empty_page.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomeView extends GetView<HomeController> {
+  Future<void> pickMedia() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+      allowCompression: true,
+    );
+
+    if (result != null) {
+      // Handle the picked media
+      String filePath = result.files.single.path!;
+      log('Picked file path: $filePath');
+    }
+  }
+
+  Future<void> requestPermissions() async {
+    // List of permissions to request
+    List<Permission> permissions = [
+      // Permission.photos,
+      // Permission.videos,
+      // Permission.audio,
+      // Permission.camera,
+      Permission.manageExternalStorage,
+    ];
+
+    // Request each permission
+    await Future.forEach(permissions, (Permission permission) async {
+      var status = await permission.request();
+      // Check the permission status
+      if (status.isGranted) {
+        log('${permission.toString()} granted');
+      } else {
+        log('${permission.toString()} denied');
+      }
+    });
+  }
+
   const HomeView({super.key});
 
   @override
@@ -79,6 +117,40 @@ class HomeView extends GetView<HomeController> {
                           text: 'Navigate to second screen',
                           borderColor: Colors.red,
                           buttonHandler: () => Get.toNamed(Routes.SECONDSCREEN),
+                          width: 250,
+                          height: 45,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        CustomButton(
+                          text: 'Navigate to hero screen first',
+                          borderColor: Colors.red,
+                          buttonHandler: () => Get.toNamed(Routes.HEROPAGE),
+                          width: 250,
+                          height: 45,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        CustomButton(
+                          text: 'Get Permissions ',
+                          borderColor: Colors.red,
+                          buttonHandler: () async {
+                            await requestPermissions();
+                          },
+                          width: 250,
+                          height: 45,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        CustomButton(
+                          text: 'Pick file',
+                          borderColor: Colors.red,
+                          buttonHandler: () async {
+                            await pickMedia();
+                          },
                           width: 250,
                           height: 45,
                         ),

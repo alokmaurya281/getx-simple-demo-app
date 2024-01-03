@@ -9,6 +9,7 @@ abstract class Routes {
   static const SECONDSCREEN = _Paths.SECONDSCREEN;
   static const PROFILESCREEN = _Paths.PROFILESCREEN;
   static const QRGENERATOR = _Paths.QRGENERATOR;
+  static const HEROPAGE = _Paths.HEROPAGE;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const SECONDSCREEN = '/second';
   static const PROFILESCREEN = '/profile';
   static const QRGENERATOR = '/qr_generator';
+  static const HEROPAGE = '/hero_page';
 }
