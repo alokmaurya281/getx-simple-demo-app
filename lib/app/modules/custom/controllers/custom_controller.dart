@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 // import 'package:simmpli/app/utils/session_manager.dart';
 
@@ -12,8 +13,10 @@ class CustomController extends GetxController {
   var connectionStatus = 0.obs;
   final Connectivity connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> connectivitySubscription;
-
+// Set the default locale
   var logger = Logger();
+
+  var defaultLocalec = 'en'.obs;
 
   @override
   void onInit() {
@@ -22,6 +25,7 @@ class CustomController extends GetxController {
     logger.d('Custom Init');
 
     // SessionManager.init();
+    changelang(defaultLocalec.string);
 
     initConnectivity();
     connectivitySubscription =
@@ -56,6 +60,11 @@ class CustomController extends GetxController {
         Get.snackbar("Network Error", "Failed to get network connection");
         break;
     }
+  }
+
+  void changelang(String lang) {
+    defaultLocalec = lang.obs;
+    Intl.defaultLocale = lang;
   }
 
   @override

@@ -15,6 +15,7 @@ class HomeView extends GetView<HomeController> {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.any,
       allowCompression: true,
+      allowMultiple: true,
     );
 
     if (result != null) {
@@ -27,10 +28,6 @@ class HomeView extends GetView<HomeController> {
   Future<void> requestPermissions() async {
     // List of permissions to request
     List<Permission> permissions = [
-      // Permission.photos,
-      // Permission.videos,
-      // Permission.audio,
-      // Permission.camera,
       Permission.manageExternalStorage,
     ];
 
@@ -146,7 +143,7 @@ class HomeView extends GetView<HomeController> {
                           height: 16,
                         ),
                         CustomButton(
-                          text: 'Pick file',
+                          text: 'Pick File',
                           borderColor: Colors.red,
                           buttonHandler: () async {
                             await pickMedia();

@@ -3,7 +3,7 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 import 'dart:typed_data';
 
-import 'package:screenshot/screenshot.dart';
+// import 'package:screenshot/screenshot.dart';
 import 'package:counter_app/app/modules/qr_generator/controllers/qr_generator_controller.dart';
 import 'package:counter_app/app/utils/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class QRGeneratorView extends GetView<QRGeneratorController> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenshotController screenshotController = ScreenshotController();
+    // ScreenshotController screenshotController = ScreenshotController();
     Widget qr = QrImageView(
       data: controller.dataController.text,
       size: 200,
@@ -78,27 +78,26 @@ class QRGeneratorView extends GetView<QRGeneratorController> {
                   controller.showQr.value
                       ? GestureDetector(
                           onTap: () async {
-                            Uint8List? screenshot = await screenshotController
-                                .captureFromWidget(qr);
+                            // Uint8List? screenshot = await screenshotController
+                            //     .captureFromWidget(qr);
 
-                            var time = DateTime.now()
-                                .millisecondsSinceEpoch
-                                .toString();
-                            screenshotController.captureAndSave(
-                              'assets/images/',
-                              fileName: 'qr_code$time',
-                              pixelRatio: 200,
-                              delay: Duration.zero,
-                            );
-                            await ImageGallerySaver.saveImage(
-                              screenshot,
-                              quality: 100,
-                              name: 'screenshot_image$time',
-                            );
-                            log('Image saved');
+                            // var time = DateTime.now()
+                            //     .millisecondsSinceEpoch
+                            //     .toString();
+                            // screenshotController.captureAndSave(
+                            //   'assets/images/',
+                            //   fileName: 'qr_code$time',
+                            //   pixelRatio: 200,
+                            //   delay: Duration.zero,
+                            // );
+                            // await ImageGallerySaver.saveImage(
+                            //   screenshot,
+                            //   quality: 100,
+                            //   name: 'screenshot_image$time',
+                            // );
+                            // log('Image saved');
                           },
-                          child: Screenshot(
-                              controller: screenshotController, child: qr),
+                          child: qr,
                         )
                       : const Text('')
                 ],
